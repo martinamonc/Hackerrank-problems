@@ -1,0 +1,470 @@
+--BASIC DATA TYPES
+LIST COMPREHENSIONS
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+print ([[a,b,c] for a in range(x+1) for b in range(y+1) for c in range(z+1) if a+b+c!=n])
+FIND THE RUNNER UP SCORE
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+arrmax= max(arr)
+print (arrmax)
+for i in arr:
+    if i==arrmax: 
+        print (max(arr-arrmax-i))
+    else:
+        print (max(arr-arrmax))
+NESTED LISTS
+if __name__ == '__main__':
+    nested= []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        nested.append([score, name])
+nested.sort()
+b = [i for i in nested if i[0] != nested[0][0]]
+c = [j for j in b if j[0] == b[0][0]]
+c.sort(key=lambda x: x[1])
+for i in range(len(c)):
+    print(c[i][1])
+LISTS
+if __name__ == '__main__':
+    N = int(input())
+    simple_list = []
+for _ in range(N):
+    user_input = input()
+    input_list = user_input.split()
+    if input_list[0] == 'insert':
+        #simple_list[input_list[1]] = input_list[2]
+        simple_list.insert(int(input_list[1]),int(input_list[2]))
+    elif input_list[0] == 'print':
+        print(simple_list)
+    elif input_list[0] == 'remove':
+        simple_list.remove(int(input_list[1]))
+    elif input_list[0] == 'append':
+        simple_list.append(int(input_list[1]))
+    elif  input_list[0] == 'sort':
+        simple_list.sort()
+    elif input_list[0] == 'pop':
+        simple_list.pop()
+    elif input_list[0] == 'reverse':
+        simple_list.reverse()
+    else :
+        print( "incorrect option ")
+TUPLES
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = map(int, input().split())
+t= tuple (integer_list)
+print (hash(t))
+
+--STRINGS
+def swap_case(s):
+    result= ""
+    for letter in s:
+        if letter==letter.upper():
+            result+=letter.lower()
+        else:
+            result+= letter.upper()
+    return (result)
+    
+def split_and_join(line):
+    stringg= line.split(" ")
+    new_string= "-".join(stringg)
+    return new_string
+    
+def mutate_string(string, position, character):
+    l= list(string)
+    l[position]= character
+    string= "".join(l)
+    return string
+    
+def count_substring(string, sub_string):
+    count= 0
+    while sub_string in string:     
+        count += 1            
+        string = string[string.find(sub_string)+1:]     
+    return(count)
+    
+if __name__ == '__main__':
+    s = input()
+if s.isalnum:
+    print (True)
+else:
+    print (False)
+if s.isalpha:
+    print (True)
+else:
+    print (False)
+if s.isdigit:
+    print (True)
+else:
+    print (False)
+if s.islower:
+    print (True)
+else:
+    print (False)
+if s.isupper:
+    print (True)
+else:
+    print (False)
+
+#Replace all ______ with rjust, ljust or center. 
+thickness = int(input()) #This must be an odd number
+c = 'H'
+#Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+#Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+#Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+#Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+   
+def wrap(s, mw):
+    return (textwrap.fill(s, mw))
+
+def print_formatted(number):
+    length= len(bin(number)[:2])
+    for no in range(1, number+1):
+        dec= str(no)
+        noct= (oct(no)[2:])
+        nhex= (hex(no)[2:])
+        nbin= (bin(no)[2:])
+        print (dec.rjust(length),noct.rjust(length),nhex.rjust(length), nbin.rjust(length))
+
+def print_rangoli(size):
+    alphabet= "abcdefghijklmnopqrstuvwxyz"
+    l= []
+    for i in range(size):
+        s= "-".join(alphabet[i:size])
+        l.append((s[::-1]+s[1:]).center(4*n-3, "-"))
+    print('\n'.join(l[:0:-1]+l))
+        
+def solve(s):
+    nss= s.split(" ")
+    ns= []
+    for w in nss:
+        nw= w[0].upper() + w[1:]
+        ns.append(nw)
+    return ' '.join(ns)
+
+--SETS
+def average(arr):
+    tot= len(set(arr))
+    sumh= sum(set(arr))
+    average= sumh/tot
+    return(average)
+    
+nm= input()
+arr= list(map(int, input().split()))
+a= set(map(int, input().split()))
+b= set(map(int, input().split()))
+count= 0
+for i in arr:    
+    if i in a:
+        count+=1
+    elif i in b:
+        count+=(-1)
+    else:
+        count+=0
+print (count)
+
+M= int(input())
+s1= set (map(int, input().split()))
+N= int(input())
+s2= set (map(int, input().split()))
+diff1= list(s1.difference(s2))
+diff2= list(s2.difference(s1))
+diff= sorted(diff1 + diff2)
+for n in diff:
+    print (n)
+
+stamps= set()
+for s in range(int(input())):
+    stamps.add(input())
+print(len(stamps))
+
+n = int(input())
+s = set(map(int, input().split()))
+nact= int(input())
+for i in range(nact):
+    act= input()
+    actt= act.split()
+    if actt[0]=="pop":
+        s.pop()
+    elif actt[0]=="remove":
+        s.remove(int(actt[1]))
+    elif actt[0]== "discard":
+        s.discard(int(actt[1]))
+print (sum(s))
+
+n= int(input())
+eng= set(input().split())
+b= int(input())
+fr= set(input().split())
+both= eng.union(fr)
+print (len(both))
+
+n= input()
+eng= set(input().split())
+b= input()
+fr= set(input().split())
+print (len(eng.intersection(fr)))
+
+n= input()
+eng= set(input().split())
+b= input()
+fr= set(input().split())
+print (len(fr.difference(eng)))
+
+a= input()
+eng= set(input().split())
+b= input()
+fr= set(input().split())
+print (len(eng.symmetric_difference(fr)))
+
+n= int(input())
+a= set(map(int, input().split()))
+ns= int(input())
+for i in range(ns):
+    entry, ne= input().split()
+    news= set(map(int, input().split()))
+    if entry== "intersection_update":
+        a.intersection_update(news)
+    elif entry== "symmetric_difference_update":
+        a.symmetric_difference_update(news)
+    elif entry== "update":
+        a.update(news)
+    elif entry== "difference_update":
+        a.difference_update(news)
+print (sum(a))
+
+import builtins
+import os, argparse
+from collections import Counter
+k= input()
+rooms= input().split()
+count= Counter(map(int, rooms))
+for r, n in count.items():
+    if n==1:
+        print (r)
+
+tc= int(input())
+for s in range(tc):
+    an= input()
+    a= set(input().split())
+    bn= input()
+    b= set(input().split())
+    print(a.issubset(b))
+
+a= set(map(int, input().split()))
+n= int(input())
+print (all([a.issuperset(set(map(int, input().split()))) for s in range(n)]))
+
+--MATH
+import cmath
+n = complex(input().strip())
+print(cmath.polar(n)[0])
+print(cmath.polar(n)[1])
+
+import math
+ab= int(input())
+bc= int(input())
+print (str(int(round(math.degrees(math.atan2(ab,bc)))))+'°')
+
+for i in range(1,int(input())+1): 
+    print ((10**i//9)**2)
+
+a= int(input())
+b= int(input())
+print (a//b)
+print (a%b)
+print (divmod(a,b))
+
+a= int(input())
+b= int(input())
+m= int(input())
+print (pow(a, b))
+print (pow(a, b, m))
+
+a= int(input())
+b= int(input())
+c= int(input())
+d= int(input())
+powa= a**b
+powc= c**d
+print (powa + powc)
+
+for i in range(1,int(input())): 
+    print ((10**(i)//9)*i)
+
+--ITERTOOLS
+from itertools import product
+l1= list(map(int, input().split()))
+l2= list(map(int, input().split()))
+l1l2= list(product(l1, l2))
+print(*l1l2)
+
+from itertools import permutations
+lst= list(input().split())
+s= sorted(lst[0])
+k= int(lst[1])
+cr= list(permutations(s,k))
+for t in cr:
+    print (''.join(t))
+
+from itertools import combinations
+lst= list(input().split())
+s= sorted(lst[0])
+k= int(lst[1])
+cr= list(combinations(s,k))
+for ss in s:
+    print (ss)
+for t in cr:
+    print (''.join(t))
+
+from itertools import combinations_with_replacement
+lst= list(input().split())
+s= sorted(lst[0])
+k= int(lst[1])
+cr= list(combinations_with_replacement(s,k))
+for t in cr:
+    print (''.join(t))
+
+import itertools
+n= (input())
+for k, i in groupby(n):
+    print ((len(list(i)), int(k),end==' ')
+
+from itertools import combinations
+n= int(input())
+elements= list(map(str, input().split()))
+k= int(input())
+comb= list(combinations(elements,k))
+l= len(comb)
+t= 0
+for i in comb:
+    if "a" in i:
+        t+=1
+prob= t/l
+print(round(prob,12))
+
+--COLLECTIONS
+from collections import Counter
+sn= int(input())
+ss= Counter(map(int, input().split()))
+cn= int(input())
+money= 0
+for i in range(cn):
+    size, price= list(map(int, input().split()))
+    if size in ss:
+        money+=price
+        ss[size]-=1
+
+print (money)
+    
+from collections import defaultdict
+n, m= map(int, input().split())
+dic= defaultdict(list)
+B= []
+for i in range(n):
+    dic[input()].append(i+1)
+for t in range(m):
+    B.append(input())
+for t in B:
+    if t in dic:
+        print (' '.join(map(str, dic[t])))
+    else:
+        print (-1)
+
+from collections import namedtuple
+n= int(input())
+column_names= map(str, input().split())
+student= namedtuple('student', column_names)
+for i in range(n):
+    i= student((input().split))
+
+from collections import OrderedDict
+from itertools import groupby
+n= int(input())
+orddic= OrderedDict()
+for i in range(n):
+    for item_name, price in (groupby(input().split(), str.isalpha)):
+        orddic[item_name]+= price
+for o in orddic:
+    print (item_name, price)
+
+from collections import OrderedDict
+ws = OrderedDict()
+for i in range(int(input())):
+    w = input()
+    ws.setdefault(w, 0)
+    ws[w] += 1
+print(len(ws))
+print(*ws.values())
+
+from collections import deque
+n= int(input())
+d= deque()
+for i in range(n):
+    inp= list(map(str, input().split()))
+    if inp[0]== 'append':
+        d.append(inp[1])
+    elif inp[0]== "appendleft":
+        d.appendleft(inp[1])
+    elif inp[0]== 'pop':
+        d.pop()
+    elif inp[0]== 'popleft':
+        d.popleft()
+    elif inp[0]== 'clear':
+        d.clear()
+    elif inp[0]== 'extend':
+        d.extend(inp[1])
+    elif inp[0]== 'extendleft':
+        d.extendleft(inp[1])
+    elif inp[0]== 'count':
+        d.count(inp[1])
+    elif inp[0]== 'remove':
+        d.remove(inp[1])
+    elif inp[0]== 'reverse':
+        d.reverse()
+    elif inp[0]== 'rotate':
+        d.rotate(inp[1])
+print (' '.join(d))
+
+import math
+import os
+import random
+import re
+import sys
+if __name__ == '__main__':
+    s = input()
+ss= set(s.split())
+lst= []
+for c in ss:
+    count= str(s.count(c))
+    counts= [c, count]
+    lst.append(' '.join(counts))
+print (*lst, sep="\n")
+
+from collections import deque
+n= int(input())
+for i in range(n):
+    nc= int(input()
+    lc= deque(input.split)
+    sidel(nc, lc)
+def sidel(nc, lc):   
+    if (lc.popleft())>=max(list(lc)):
+        lc.popleft()
+        sidel(nc,lc)
+
