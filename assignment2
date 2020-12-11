@@ -1,0 +1,106 @@
+SOLVE ME FIRST
+def solveMeFirst(a,b):
+    return(a+b)
+
+SIMPLE ARRAY SUM
+def simpleArraySum(ar):
+    sum= 0
+    for i in ar:
+        sum+=i
+    return sum
+
+COMPARE THE TRIPLETS
+def compareTriplets(a, b):
+    ac= 0
+    bc= 0
+    for i in range(len(a)):
+        if a[i]>b[i]:
+            ac+=1
+        elif a[i]<b[i]:
+            bc+=1
+    return ac, bc
+
+A VERY BIG SUM
+def aVeryBigSum(ar):
+    sums= 0
+    for a in ar:
+        sums+=a
+    return sums
+
+DIAGONAL DIFFERENCE
+def diagonalDifference(arr):
+    sum1=0
+    sum2= 0
+    i=0
+    j=0
+    r= 0
+    nn= n-1
+    for a in arr:
+        sum1+=arr[i][j]
+        i+=1
+        j+=1
+    for a in arr:
+        sum2+=arr[r][nn]
+        r+=1
+        nn-=1
+    return (abs(sum1-sum2))
+
+PLUS MINUS
+def plusMinus(arr):
+    countp=0
+    countn=0
+    countz=0
+    for a in arr:
+        if a==0:
+            countz+=1
+        elif a>0:
+            countp+=1
+        elif a<0:
+            countn+=1
+    rz= "{0:.6f}".format(countz/n)
+    rp= "{0:.6f}".format(countp/n)
+    rn= "{0:.6f}".format(countn/n)
+    for r in [rp, rn, rz]:
+        print (r)
+
+STAIRCASE
+def staircase(n):
+    stair= []
+    for i in range(1,n+1):
+        s= n-i
+        st= (' '*s)+('#'*i)
+        stair.append(st)
+    for ss in stair:
+        print (ss)
+
+BIRTHDAY CAKE CANDLES
+import collections
+def birthdayCakeCandles(candles):
+    count= collections.Counter(candles)
+    m= max(candles)
+    return count[m]
+
+MINI-MAX SUM
+def aVeryBigSum(ar):
+    sums= 0
+    for a in ar:
+        sums+=a
+    return sums
+
+TIME CONVERSION
+def timeConversion(s):
+    hh, mm, ss= s.split(':')
+    if 'AM' in ss:
+        if hh=='12':
+            hh1= '00'
+        else:
+            hh1==hh
+        ss= ss.replace('AM', '')
+    elif 'PM' in ss:
+        if hh=='12':
+            hh1= '12'
+        else:
+            hh1= int(hh)+12
+        ss= ss.replace('PM', '')
+    time= [str(hh1), mm, ss]
+    return ':'.join(time)
