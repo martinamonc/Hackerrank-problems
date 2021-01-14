@@ -201,3 +201,61 @@ def quickSort(arr):
             crr.append(arr[i])
     rr= list(map(str, (brr + drr + crr)))
     return rr
+
+STRINGS
+CAMELCASE
+def camelcase(s):
+    count=0
+    for l in s:
+        if l.isupper():
+            count+=1
+    return (count+1)
+
+MARS EXPLORATION
+def marsExploration(s):
+    count=0
+    l= wrap(s, 3)
+    for s in l:
+        if s!='SOS':
+            count+=1
+    return count
+
+PANGRAMS
+def pangrams(s):
+    ss= set(s.lower())
+    ss.discard(" ")
+    if len(ss)==26:
+        return ('pangram')
+    else:
+        return ('not pangram')
+ALTERNATING CHARACTERS
+def alternatingCharacters(s):
+    count=0
+    ss=list(s)
+    for i in range(len(ss)-1):
+        if ss[i]=="A":
+            if ss[i+1]=="A":
+                count+=1
+            else:
+                continue
+        elif ss[i]=="B":
+            if ss[i+1]=="B":
+                count+=1
+            else:
+                continue
+    return count
+
+GRADING STUDENTS
+def gradingStudents(grades):
+    newg=[]
+    for g in grades:
+        next5= ((g//5)+1)*5
+        diff= next5-g
+        if g>=38:
+            if diff<3:
+                newg.append(next5)
+            elif diff>=3:
+                newg.append(g)
+        else:
+            newg.append(g)
+    return newg
