@@ -245,17 +245,33 @@ def alternatingCharacters(s):
                 continue
     return count
 
-GRADING STUDENTS
-def gradingStudents(grades):
-    newg=[]
-    for g in grades:
-        next5= ((g//5)+1)*5
-        diff= next5-g
-        if g>=38:
-            if diff<3:
-                newg.append(next5)
-            elif diff>=3:
-                newg.append(g)
-        else:
-            newg.append(g)
-    return newg
+STRONG PASSWORD
+def minimumNumber(n, password):
+    count= 0
+    numbers = list("0123456789".split())
+    lower_case = list("abcdefghijklmnopqrstuvwxyz".split())
+    upper_case = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split())
+    special_characters = list("!@#$%^&*()-+".split())
+    if n<6:
+        return (6-n)
+    else:
+        for l in password:
+            if l not in numbers:
+                count+=1
+            if l not in lower_case:
+                count+=1
+            if l not in upper_case:
+                count+=1
+            if l not in special_characters:
+                count+=1
+        for l in password:
+            if l in numbers:
+                continue
+            elif l in lower_case:
+                continue
+            elif l in upper_case:
+                continue
+            elif l in special_characters:
+                continue
+        
+        return (count)
